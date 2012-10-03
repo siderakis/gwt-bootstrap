@@ -24,6 +24,7 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.Element;
 import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.Focusable;
 import com.google.gwt.user.client.ui.HasEnabled;
@@ -220,7 +221,7 @@ public class IconAnchor extends ComplexWidget implements HasText, HasIcon, HasHr
     @Override
     public void setFocus(boolean focused) {
         if (focused) {
-            impl.focus(getElement());
+            impl.focus((Element) getElement().getFirstChildElement());
         } else {
             impl.blur(getElement());
         }

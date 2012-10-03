@@ -46,9 +46,9 @@ public class ResourceInjector {
      */
     public static void configureWithCssFile() {
         
-        injectResourceCssAsFile("bootstrap.min.css");
-        injectResourceCssAsFile("gwt-bootstrap.css");
-        injectResourceCssAsFile("font-awesome.css");
+     //   injectResourceCssAsFile("bootstrap.min.css");
+     //   injectResourceCssAsFile("gwt-bootstrap.css");
+     //   injectResourceCssAsFile("font-awesome.css");
 
         configure();
         
@@ -63,8 +63,13 @@ public class ResourceInjector {
         Resources res = ADAPTER.getResources();
         if (ADAPTER.hasResponsiveDesign())
             activateResponsiveDesign(res);
-        injectJs(res.jquery());
+      //  injectJs(res.jquery());
         injectJs(res.bootstrapJs());
+        injectCss(res.bootstrapCss());
+        injectCss(res.fontAwesomeCss());
+        injectCss(res.gwtBootstrapCss());
+
+
     }
 
     private static void injectCss(TextResource r) {
@@ -79,7 +84,7 @@ public class ResourceInjector {
         LinkElement link = Document.get().createLinkElement();
         link.setType("text/css");
         link.setRel("stylesheet");
-        link.setHref(GWT.getModuleName() + "/css/" + filename);
+       // link.setHref(GWT.getModuleName() + "/css/" + filename);
         getHead().appendChild(link);
     }
 
